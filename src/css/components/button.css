@@ -1,0 +1,39 @@
+.btn {
+  background-color: var(--button-bg, #fff);
+  color: var(--button-fg, var(--color-text));
+  border-color: var(--button-border, var(--color-rose-400));
+  border-radius: 999em;
+  padding: 12px;
+  min-width: 160px;
+  display: inline-flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  transition: all .1s;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.btn.btn-primary {
+  --button-bg: var(--color-primary);
+  --button-fg: #fff;
+  --button-border: transparent;
+}
+
+.btn.btn-large {
+  padding: 16px 24px;
+  font-size: 16px;
+}
+
+@media (hover: hover) {
+  .btn:hover {
+    --button-fg: var(--color-red);
+    --button-border: var(--color-red);
+  }
+
+  .btn.btn-primary:hover {
+    --button-fg: #fff;
+    --button-bg: color-mix(in srgb, var(--color-primary), #000 25%);
+    --button-border: transparent;
+  }
+}
