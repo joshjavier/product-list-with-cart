@@ -25,15 +25,47 @@
   font-size: 16px;
 }
 
+.btn.btn-icon {
+  --button-bg: transparent;
+  --button-fg: #fff;
+  border: none;
+  min-width: unset;
+  margin-block: -12px;
+}
+
+.btn.btn-icon:where(:first-child) {
+  margin-inline-start: -12px;
+}
+
+.btn.btn-icon:where(:last-child) {
+  margin-inline-end: -12px;
+}
+
+@media (pointer: fine) {
+  .btn.btn-icon {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.btn.btn-quantity {
+  justify-content: space-between;
+}
+
 @media (hover: hover) {
-  .btn:hover {
+  button:where(.btn):hover {
     --button-fg: var(--color-red);
     --button-border: var(--color-red);
   }
 
-  .btn.btn-primary:hover {
+  button:where(.btn-primary):hover {
     --button-fg: #fff;
     --button-bg: color-mix(in srgb, var(--color-primary), #000 25%);
     --button-border: transparent;
+  }
+
+  button:where(.btn-icon) .icon:hover {
+    --icon-fill: #fff;
+    color: var(--color-primary);
   }
 }
