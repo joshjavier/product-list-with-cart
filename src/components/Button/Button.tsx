@@ -18,7 +18,7 @@ export default function Button({ type, label, icon, size, ...props }: Props) {
 
   return (
     <button className={classes.join(' ')} {...props}>
-      {icon && <Icon icon={icon} />}
+      {icon && <Icon variant={icon} />}
       {label}
     </button>
   )

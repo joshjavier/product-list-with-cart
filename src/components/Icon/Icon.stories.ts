@@ -9,26 +9,26 @@ const meta: Meta<typeof Icon> = {
 export default meta
 type Story = StoryObj<typeof Icon>
 
-export const Plus: Story = {
+export const Add: Story = {
   args: {
-    icon: 'add',
+    variant: 'add',
   },
 }
 
-export const Minus: Story = {
+export const Subtract: Story = {
   args: {
-    icon: 'subtract',
+    variant: 'subtract',
   },
 }
 
-export const Cancel: Story = {
+export const Remove: Story = {
   args: {
-    icon: 'remove',
+    variant: 'remove',
   },
 }
 
 export const Cart: Story = {
   args: {
-    icon: 'cart',
+    variant: 'cart',
   },
 }

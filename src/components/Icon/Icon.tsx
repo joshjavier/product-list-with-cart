@@ -1,34 +1,21 @@
-import iconPlus from '../../icons/plus.svg'
-import iconMinus from '../../icons/minus.svg'
-import iconX from '../../icons/x.svg'
-import iconCart from '../../icons/shopping-cart-plus.svg'
+export type IconVariant = 'add' | 'subtract' | 'cart' | 'remove'
 
 export interface Props {
-  icon: IconVariant
-  alt?: string
+  variant: IconVariant
   size?: number
 }
 
-export type IconVariant = 'add' | 'subtract' | 'cart' | 'remove'
-
-const getIconUrl = (icon: IconVariant): string => {
-  return {
-    subtract: iconMinus,
-    add: iconPlus,
-    cart: iconCart,
-    remove: iconX,
-  }[icon]
-}
-
-export default function Icon({ icon, alt = '', size = 20 }: Props) {
-  const iconUrl = getIconUrl(icon)
+export default function Icon({ variant, size = 20 }: Props) {
   return (
-    <img
-      className="icon"
-      src={iconUrl}
-      alt={alt}
+    <svg
+      className={`icon icon-${variant}`}
+      viewBox={`0 0 ${size} ${size}`}
       width={size}
       height={size}
-    />
+      aria-hidden="true"
+      focusable="false"
+    >
+      <use href={`/__spritemap#sprite-${variant}`} />
+    </svg>
   )
 }
