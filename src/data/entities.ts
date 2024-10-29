@@ -8,6 +8,6 @@ export interface Product {
   price: number
 }
 
-export interface CartItem extends Product {
+export interface OrderLine extends Omit<Product, 'image' | 'category'> {
   quantity: number
 }
