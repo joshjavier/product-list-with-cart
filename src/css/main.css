@@ -7,6 +7,7 @@
 /* Components */
 @import 'components/button.css';
 @import 'components/cart-item.css';
+@import 'components/cart-list.css';
 @import 'components/icon.css';
 @import 'components/product-item.css';
 
