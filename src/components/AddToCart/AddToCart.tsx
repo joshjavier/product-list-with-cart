@@ -3,15 +3,24 @@ import Button from '../Button'
 import Icon from '../Icon'
 
 export interface Props {
-  callback?: () => void
+  initialQuantity?: number
+  callback?: (value: number) => void
 }
 
-export default function AddToCart() {
-  const [quantity, setQuantity] = useState<number>(0)
+export default function AddToCart({ initialQuantity = 0, callback }: Props) {
+  const [quantity, setQuantity] = useState<number>(initialQuantity)
 
   const addToCart = () => setQuantity(1)
-  const increment = () => setQuantity(q => q + 1)
-  const decrement = () => setQuantity(q => q - 1)
+  const increment = () => setQuantity((q) => {
+    const value = q + 1
+    if (callback) callback(value)
+    return value
+  })
+  const decrement = () => setQuantity((q) => {
+    const value = q - 1
+    if (callback) callback(value)
+    return value
+  })
 
   return quantity === 0 ? (
     <Button icon="cart" label="Add to Cart" onClick={addToCart} />

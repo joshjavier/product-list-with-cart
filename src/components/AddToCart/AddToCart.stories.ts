@@ -10,3 +10,9 @@ export default meta
 type Story = StoryObj<typeof AddToCart>
 
 export const Default: Story = {}
+
+export const Active: Story = {
+  args: {
+    initialQuantity: 1,
+  },
+}
