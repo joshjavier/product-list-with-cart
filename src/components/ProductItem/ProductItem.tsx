@@ -1,6 +1,7 @@
 import { useCart } from 'react-use-cart'
 import { CartItem, Product } from '../../data/entities'
 import AddToCart from '../AddToCart'
+import { formatPrice } from '../../utils'
 
 export interface Props {
   product: Product
@@ -9,7 +10,7 @@ export interface Props {
 export default function ProductItem({ product }: Props) {
   const { updateItemQuantity, removeItem, addItem, inCart, getItem } = useCart()
   const quantityInCart = (getItem(product.id) as CartItem)?.quantity
-  const formattedPrice = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(product.price)
+  const formattedPrice = formatPrice(product.price)
 
   const updateCart = (quantity: number) => {
     if (!inCart(product.id)) {
