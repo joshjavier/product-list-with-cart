@@ -1,0 +1,35 @@
+.cart-item {
+  /* border: 1px solid red; */
+  list-style: none;
+  line-height: normal;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & :where(.name, p) {
+    margin-top: 0;
+  }
+
+  & .quantity-and-price {
+    display: flex;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--color-rose-500);
+    margin-top: 8px;
+  }
+
+  & .quantity {
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  & .total {
+    font-weight: 600;
+  }
+
+  & .actions {
+    /* border: 1px solid red; */
+    display: flex;
+    gap: 8px;
+  }
+}

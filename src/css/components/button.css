@@ -25,8 +25,6 @@
   }
 
   &.btn-icon {
-    --button-bg: transparent;
-    --button-fg: #fff;
     border: none;
     min-width: unset;
     margin-block: -12px;
@@ -64,8 +62,14 @@
     }
 
     &:is(.btn-icon) .icon {
-      --icon-fill: #fff;
-      color: var(--color-primary);
+      &:where(.icon-add, .icon-subtract) {
+        --icon-fill: #fff;
+        color: var(--color-primary);
+      }
+
+      &:where(.icon-remove) {
+        color: var(--color-rose-900);
+      }
     }
   }
 }

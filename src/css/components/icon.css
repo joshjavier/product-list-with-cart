@@ -5,3 +5,7 @@
 .icon-cart {
   color: var(--color-primary);
 }
+
+.icon-remove {
+  color: var(--color-rose-400);
+}
