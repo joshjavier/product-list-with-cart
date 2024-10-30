@@ -1,9 +1,9 @@
-import { OrderLine } from '../../data/entities'
+import type { Item } from 'react-use-cart'
 import { formatPrice } from '../../utils'
 import Icon from '../Icon'
 
 export interface Props {
-  item: OrderLine
+  item: Item
   callback?: (itemId: string) => void
 }
 
@@ -32,7 +32,7 @@ export default function CartItem({ item, callback }: Props) {
           </p>
           <p className="total">
             <span className="visually-hidden">cost</span>
-            {formatPrice(item.price * item.quantity)}
+            {formatPrice(item.price * item.quantity!)}
           </p>
         </div>
       </div>

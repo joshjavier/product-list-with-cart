@@ -7,7 +7,3 @@ export interface Product {
   category: string
   price: number
 }
-
-export interface OrderLine extends Omit<Product, 'image' | 'category'> {
-  quantity: number
-}

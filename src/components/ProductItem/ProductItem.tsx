@@ -1,5 +1,5 @@
-import { useCart } from 'react-use-cart'
-import { OrderLine, Product } from '../../data/entities'
+import { useCart, Item } from 'react-use-cart'
+import { Product } from '../../data/entities'
 import AddToCart from '../AddToCart'
 import { formatPrice } from '../../utils'
 
@@ -9,7 +9,7 @@ export interface Props {
 
 export default function ProductItem({ product }: Props) {
   const { updateItemQuantity, removeItem, addItem, inCart, getItem } = useCart()
-  const quantityInCart = (getItem(product.id) as OrderLine)?.quantity
+  const quantityInCart = (getItem(product.id) as Item)?.quantity
   const formattedPrice = formatPrice(product.price)
 
   const updateCart = (quantity: number) => {
