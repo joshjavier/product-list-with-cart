@@ -1,6 +1,6 @@
 import type { Item } from 'react-use-cart'
 import { formatPrice } from '../../utils'
-import Icon from '../Icon'
+import Button from '../Button'
 
 export interface Props {
   item: Item
@@ -37,10 +37,12 @@ export default function CartItem({ item, callback }: Props) {
         </div>
       </div>
       <div className="actions">
-        <button className="btn btn-icon" onClick={onClick}>
-          <Icon variant="remove" />
-          <span className="visually-hidden">Remove item from cart</span>
-        </button>
+        <Button
+          type="icon"
+          icon="remove"
+          label="Remove item from cart"
+          onClick={onClick}
+        />
       </div>
     </li>
   )

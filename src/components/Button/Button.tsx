@@ -1,7 +1,7 @@
 import Icon from '../Icon'
 
 export interface Props {
-  type?: string
+  type?: 'primary' | 'icon'
   size?: 'large'
   label: string
   icon?: string
@@ -18,7 +18,9 @@ export default function Button({ type, label, icon, size, ...props }: Props) {
   return (
     <button className={classes.join(' ')} {...props}>
       {icon && <Icon variant={icon} />}
-      {label}
+      {type === 'icon' ? (
+        <span className="visually-hidden">{label}</span>
+      ) : label}
     </button>
   )
 }

@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import Button from '../Button'
-import Icon from '../Icon'
 
 export interface Props {
   initialQuantity?: number
@@ -25,15 +24,19 @@ export default function AddToCart({ initialQuantity = 0, callback }: Props) {
     <Button icon="cart" label="Add to Cart" onClick={increment} />
   ) : (
     <div className="btn btn-primary btn-quantity">
-      <button className="btn btn-icon" onClick={decrement}>
-        <Icon variant="subtract" />
-        <span className="visually-hidden">Subtract one item</span>
-      </button>
+      <Button
+        type="icon"
+        icon="subtract"
+        label="Subtract one item"
+        onClick={decrement}
+      />
       {quantity}
-      <button className="btn btn-icon" onClick={increment}>
-        <Icon variant="add" />
-        <span className="visually-hidden">Add one item</span>
-      </button>
+      <Button
+        type="icon"
+        icon="add"
+        label="Add one item"
+        onClick={increment}
+      />
     </div>
   )
 }
