@@ -1,0 +1,21 @@
+.infobox {
+  border-radius: 8px;
+  padding: 16px;
+  background-color: var(--color-rose-50);
+  font-size: 14px;
+  line-height: normal;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+
+  & strong {
+    font-weight: 600;
+  }
+
+  & span {
+    text-wrap: balance;
+  }
+}

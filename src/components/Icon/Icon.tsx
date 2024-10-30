@@ -1,7 +1,5 @@
-export type IconVariant = 'add' | 'subtract' | 'cart' | 'remove'
-
 export interface Props {
-  variant: IconVariant
+  variant: string
   size?: number
 }
 

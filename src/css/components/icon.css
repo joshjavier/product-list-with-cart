@@ -9,3 +9,7 @@
 .icon-remove {
   color: var(--color-rose-400);
 }
+
+.icon-carbon-neutral {
+  color: var(--color-green);
+}
