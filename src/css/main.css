@@ -5,13 +5,15 @@
 @import 'base/global.css';
 
 /* Components */
+@import 'components/block-list.css';
 @import 'components/button.css';
 @import 'components/cart.css';
 @import 'components/cart-item.css';
-@import 'components/cart-list.css';
 @import 'components/icon.css';
 @import 'components/infobox.css';
 @import 'components/order-item.css';
+@import 'components/order-summary.css';
+@import 'components/order-total.css';
 @import 'components/product-item.css';
 @import 'components/separator.css';
 

@@ -8,7 +8,7 @@ export interface Props {
 
 export default function CartList({ items, ...props }: Props) {
   return (
-    <ul role="list" className="cart-list">
+    <ul role="list" className="block-list">
       {items.map(item => <CartItem key={item.id} item={item} {...props} />)}
     </ul>
   )

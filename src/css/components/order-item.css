@@ -1,9 +1,8 @@
 .order-item {
   list-style: none;
-  height: 48px;
   display: flex;
   align-items: center;
-  gap: 16px;
+  column-gap: 16px;
 
   & * {
     margin-top: 0;
@@ -29,7 +28,8 @@
 
   & .image {
     aspect-ratio: 1;
-    height: 100%;
+    flex-shrink: 0;
+    width: 48px;
 
     > img {
       width: 100%;
