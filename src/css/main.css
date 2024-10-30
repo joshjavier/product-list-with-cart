@@ -6,11 +6,13 @@
 
 /* Components */
 @import 'components/button.css';
+@import 'components/cart.css';
 @import 'components/cart-item.css';
 @import 'components/cart-list.css';
 @import 'components/icon.css';
 @import 'components/infobox.css';
 @import 'components/product-item.css';
+@import 'components/separator.css';
 
 /* Utilities */
 @import 'utilities/visually-hidden.css';

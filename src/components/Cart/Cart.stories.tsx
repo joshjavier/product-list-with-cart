@@ -12,9 +12,12 @@ export default meta
 type Story = StoryObj<typeof Cart>
 
 export const Default: Story = {
+  args: {
+    initialItems: CartListStories.testItems,
+  },
   decorators: [
     Story => (
-      <CartProvider id="defaultcart" defaultItems={CartListStories.testItems}>
+      <CartProvider id="defaultcart">
         <Story />
       </CartProvider>
     ),

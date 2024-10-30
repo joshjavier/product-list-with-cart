@@ -1,11 +1,10 @@
 import Icon from '../Icon'
-import type { IconVariant } from '../Icon/Icon'
 
 export interface Props {
   type?: string
   size?: 'large'
   label: string
-  icon?: IconVariant
+  icon?: string
   onClick?: () => void
 }
 

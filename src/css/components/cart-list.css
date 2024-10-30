@@ -1,6 +1,5 @@
 .cart-list {
   padding-inline-start: 0;
-  margin-block: 24px;
   display: flex;
   flex-direction: column;
 
