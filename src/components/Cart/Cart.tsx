@@ -39,7 +39,7 @@ export default function Cart({ initialItems }: Props) {
         </>
       ) : (
         <div className="empty">
-          <img src="/assets/images/illustration-empty-cart.svg" alt="" />
+          <img src="/assets/images/illustration-empty-cart.svg" alt="" width={128} height={128} />
           <span>Your added items will appear here</span>
         </div>
       )}
