@@ -14,8 +14,11 @@
 @import 'components/order-item.css';
 @import 'components/order-summary.css';
 @import 'components/order-total.css';
+@import 'components/product-grid.css';
 @import 'components/product-item.css';
 @import 'components/separator.css';
 
 /* Utilities */
 @import 'utilities/visually-hidden.css';
+@import 'utilities/with-sidebar.css';
+@import 'utilities/wrapper.css';

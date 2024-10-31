@@ -7,7 +7,7 @@ import Icon from '../Icon'
 import Button from '../Button'
 
 interface Props {
-  initialItems: Item[]
+  initialItems?: Item[]
 }
 
 export default function Cart({ initialItems }: Props) {

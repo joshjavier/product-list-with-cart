@@ -15,4 +15,10 @@
 
   /* Typography */
   --font-sans: 'Red Hat Text', Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
+
+  /* Custom fluid tokens */
+  /* @link https://utopia.fyi/clamp/calculator?a=375,768,24—40 */
+  --fluid-24-40: clamp(1.5rem, 0.5458rem + 4.0712vw, 2.5rem);
+  /* @link https://utopia.fyi/clamp/calculator?a=768,1440,40—88 */
+  --fluid-40-88: clamp(2.5rem, -0.9286rem + 7.1429vw, 5.5rem);
 }

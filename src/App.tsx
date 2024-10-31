@@ -1,34 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { CartProvider } from 'react-use-cart'
+import ProductItem from './components/ProductItem'
+import Cart from './components/Cart'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import products from './data/products'
 
+function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <CartProvider id='fem'>
+      <main className="with-sidebar wrapper">
+        <h1 className="visually-hidden">Product List with Cart</h1>
+
+        <div>
+          <h2>Desserts</h2>
+          <ul role='list' className='product-grid'>
+            {products.map(p => <li key={p.id}><ProductItem product={p} /></li>)}
+          </ul>
+        </div>
+
+        <div className="sidebar">
+          <Cart key='fem' />
+        </div>
+      </main>
+    </CartProvider>
   )
 }
 
