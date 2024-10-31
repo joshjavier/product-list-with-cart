@@ -17,6 +17,11 @@ main {
     font-size: 40px;
     line-height: 1.2;
   }
+
+  & .cart {
+    position: sticky;
+    top: var(--fluid-40-88);
+  }
 }
 
 @media (min-width: 768px) {
