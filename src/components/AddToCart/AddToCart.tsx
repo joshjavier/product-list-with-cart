@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Button from '../Button'
 
 export interface Props {
@@ -8,6 +8,12 @@ export interface Props {
 
 export default function AddToCart({ initialQuantity = 0, callback }: Props) {
   const [quantity, setQuantity] = useState<number>(initialQuantity)
+
+  useEffect(() => {
+    if (quantity !== initialQuantity) {
+      setQuantity(initialQuantity)
+    }
+  }, [initialQuantity])
 
   const increment = () => setQuantity((q) => {
     const value = q + 1
