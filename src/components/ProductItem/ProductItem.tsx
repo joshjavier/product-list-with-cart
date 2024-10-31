@@ -25,7 +25,7 @@ export default function ProductItem({ product }: Props) {
   return (
     <article className={`product-item ${inCart(product.id) ? 'in-cart' : ''}`}>
       <div className="image">
-        <img src={product.image.desktop} alt="" />
+        <img src={product.image.desktop} alt="" loading="lazy" />
         <AddToCart callback={updateCart} initialQuantity={quantityInCart} />
       </div>
       <div className="info">
