@@ -18,6 +18,10 @@ main {
     line-height: 1.2;
   }
 
+  & .product-grid {
+    margin-block: 0;
+  }
+
   & .cart {
     position: sticky;
     top: var(--fluid-40-88);

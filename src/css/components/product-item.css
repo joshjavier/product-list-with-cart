@@ -1,6 +1,6 @@
 .product-item {
   max-width: 350px;
-  /* border: 2px solid var(--image-border); */
+  width: 100%;
 
   &:where(.in-cart) {
     --image-border: var(--color-primary);
