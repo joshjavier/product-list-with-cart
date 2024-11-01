@@ -10,6 +10,6 @@
   color: var(--color-rose-400);
 }
 
-.icon-carbon-neutral {
+:where(.icon-carbon-neutral, .icon-order-confirmed) {
   color: var(--color-green);
 }
