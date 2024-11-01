@@ -3,14 +3,14 @@ import { formatPrice } from '../../utils'
 import { Product } from '../../data/entities'
 
 export interface Props {
-  item: Item & Pick<Product, 'image'>
+  item: Item & Pick<Partial<Product>, 'image'>
 }
 
 export default function OrderItem({ item }: Props) {
   return (
     <li className="order-item">
       <div className="image">
-        <img src={item.image.thumbnail} alt="" />
+        <img src={item.image?.thumbnail} alt="" />
       </div>
       <div className="info">
         <h3 className="name">{item.name}</h3>

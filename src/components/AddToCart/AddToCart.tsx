@@ -13,6 +13,7 @@ export default function AddToCart({ initialQuantity = 0, callback }: Props) {
     if (quantity !== initialQuantity) {
       setQuantity(initialQuantity)
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialQuantity])
 
   const increment = () => setQuantity((q) => {
