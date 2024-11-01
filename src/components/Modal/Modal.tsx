@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode } from 'react'
+import { forwardRef, ReactNode, useImperativeHandle, useRef } from 'react'
 import Button from '../Button'
 import Icon from '../Icon'
 
@@ -11,15 +11,28 @@ export interface Props {
   open?: boolean
 }
 
-const Modal = forwardRef<HTMLDialogElement, Props>((props, ref) => {
+export interface ModalHandle {
+  showModal: () => void
+}
+
+const Modal = forwardRef<ModalHandle, Props>((props, ref) => {
+  const dialog = useRef<HTMLDialogElement>(null)
+
+  useImperativeHandle(ref, () => ({
+    showModal() {
+      dialog.current?.showModal()
+    },
+  }))
+
   const onClick = () => {
     if (props.callback) {
       props.callback()
     }
+    dialog.current?.close()
   }
 
   return (
-    <dialog open={props.open} ref={ref} className="modal">
+    <dialog open={props.open} ref={dialog} className="modal">
       <div className="wrapper">
         <div className="inner">
           <div className="message">

@@ -6,7 +6,7 @@ import CartList from '../CartList'
 import Infobox from '../Infobox'
 import Icon from '../Icon'
 import Button from '../Button'
-import Modal from '../Modal'
+import Modal, { ModalHandle } from '../Modal'
 import OrderSummary from '../OrderSummary'
 import { Order } from '../../data/entities'
 
@@ -15,8 +15,8 @@ interface Props {
 }
 
 export default function Cart({ initialItems }: Props) {
-  const { items, totalItems, removeItem, setItems, cartTotal } = useCart()
-  const dialog = useRef<HTMLDialogElement>(null)
+  const { items, totalItems, removeItem, setItems, cartTotal, emptyCart } = useCart()
+  const modal = useRef<ModalHandle>(null)
 
   useEffect(() => {
     if (initialItems) {
@@ -26,7 +26,7 @@ export default function Cart({ initialItems }: Props) {
   }, [])
 
   const onConfirmOrder = () => {
-    dialog.current?.showModal()
+    modal.current?.showModal()
   }
 
   return (
@@ -47,10 +47,11 @@ export default function Cart({ initialItems }: Props) {
           <Button type="primary" size="large" label="Confirm Order" onClick={onConfirmOrder} />
           {createPortal(
             <Modal
-              ref={dialog}
+              ref={modal}
               message={{ title: 'Order Confirmed', description: 'We hope you enjoy your food!' }}
               closeButtonLabel="Start New Order"
               icon="order-confirmed"
+              callback={emptyCart}
             >
               <OrderSummary order={new Order(items)} />
             </Modal>,
