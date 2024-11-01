@@ -25,14 +25,18 @@ const Modal = forwardRef<ModalHandle, Props>((props, ref) => {
   }))
 
   const onClick = () => {
-    if (props.callback) {
-      props.callback()
-    }
-    dialog.current?.close()
+    dialog.current?.classList.add('fade-out-bottom')
+    dialog.current?.addEventListener('animationend', () => {
+      dialog.current?.classList.remove('fade-out-bottom')
+      dialog.current?.close()
+      if (props.callback) {
+        props.callback()
+      }
+    }, { once: true })
   }
 
   return (
-    <dialog open={props.open} ref={dialog} className="modal">
+    <dialog open={props.open} ref={dialog} className="modal fade-in-bottom">
       <div className="wrapper">
         <div className="inner">
           <div className="message">

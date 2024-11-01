@@ -20,6 +20,7 @@
 @import 'components/separator.css';
 
 /* Utilities */
+@import 'utilities/transitions.css';
 @import 'utilities/visually-hidden.css';
 @import 'utilities/with-sidebar.css';
 @import 'utilities/wrapper.css';
