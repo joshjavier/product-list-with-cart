@@ -8,8 +8,10 @@
   font-size: 14px;
   gap: 24px;
 
-  > * { margin-block: 0; }
-  & * { line-height: normal; }
+  & * {
+    line-height: normal;
+    margin-block: 0;
+  }
 
   & .title {
     color: var(--color-primary);
@@ -17,7 +19,11 @@
     font-weight: 700;
   }
 
-  & .empty {
+  > div:not([class]):not(.empty) {
+    display: contents;
+  }
+
+  > .empty {
     display: grid;
     justify-items: center;
     align-content: center;

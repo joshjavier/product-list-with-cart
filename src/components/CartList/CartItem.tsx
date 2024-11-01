@@ -1,6 +1,7 @@
 import type { Item } from 'react-use-cart'
 import { formatPrice } from '../../utils'
 import Button from '../Button'
+import { m } from 'framer-motion'
 
 export interface Props {
   item: Item
@@ -15,7 +16,7 @@ export default function CartItem({ item, callback }: Props) {
   }
 
   return (
-    <li className="cart-item">
+    <m.li initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="cart-item">
       <div className="info">
         <h3 className="name">{item.name}</h3>
         <div className="quantity-and-price">
@@ -44,6 +45,6 @@ export default function CartItem({ item, callback }: Props) {
           onClick={onClick}
         />
       </div>
-    </li>
+    </m.li>
   )
 }

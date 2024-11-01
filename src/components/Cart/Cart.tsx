@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { Item, useCart } from 'react-use-cart'
+import { AnimatePresence, m } from 'framer-motion'
 import { formatPrice } from '../../utils'
 import CartList from '../CartList'
 import Infobox from '../Infobox'
@@ -32,38 +33,40 @@ export default function Cart({ initialItems }: Props) {
   return (
     <article className="cart">
       <h2 className="title">Your Cart ({totalItems})</h2>
-      {items.length ? (
-        <>
-          <CartList items={items} callback={removeItem} />
-          <hr className="separator" />
-          <div className="order-total">
-            <span>Order Total</span>
-            <span>{formatPrice(cartTotal)}</span>
-          </div>
-          <Infobox>
-            <Icon variant="carbon-neutral" />
-            <span>This is a <strong>carbon-neutral</strong> delivery</span>
-          </Infobox>
-          <Button type="primary" size="large" label="Confirm Order" onClick={onConfirmOrder} />
-          {createPortal(
-            <Modal
-              ref={modal}
-              message={{ title: 'Order Confirmed', description: 'We hope you enjoy your food!' }}
-              closeButtonLabel="Start New Order"
-              icon="order-confirmed"
-              callback={emptyCart}
-            >
-              <OrderSummary order={new Order(items)} />
-            </Modal>,
-            document.body,
-          )}
-        </>
-      ) : (
-        <div className="empty">
-          <img src="/assets/images/illustration-empty-cart.svg" alt="" width={128} height={128} />
-          <span>Your added items will appear here</span>
-        </div>
-      )}
+      <AnimatePresence initial={false}>
+        {items.length ? (
+          <>
+            <CartList items={items} callback={removeItem} />
+            <hr className="separator" />
+            <div className="order-total">
+              <span>Order Total</span>
+              <span>{formatPrice(cartTotal)}</span>
+            </div>
+            <Infobox>
+              <Icon variant="carbon-neutral" />
+              <span>This is a <strong>carbon-neutral</strong> delivery</span>
+            </Infobox>
+            <Button type="primary" size="large" label="Confirm Order" onClick={onConfirmOrder} />
+            {createPortal(
+              <Modal
+                ref={modal}
+                message={{ title: 'Order Confirmed', description: 'We hope you enjoy your food!' }}
+                closeButtonLabel="Start New Order"
+                icon="order-confirmed"
+                callback={emptyCart}
+              >
+                <OrderSummary order={new Order(items)} />
+              </Modal>,
+              document.body,
+            )}
+          </>
+        ) : (
+          <m.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="empty">
+            <img src="/assets/images/illustration-empty-cart.svg" alt="" width={128} height={128} />
+            <span>Your added items will appear here</span>
+          </m.div>
+        )}
+      </AnimatePresence>
     </article>
   )
 }
