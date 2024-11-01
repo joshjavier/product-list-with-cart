@@ -1,5 +1,4 @@
 .order-summary {
-  /* border: 1px solid red; */
   border-radius: 8px;
   background-color: var(--color-rose-50);
   display: flex;
@@ -10,5 +9,9 @@
 
   > * {
     margin-block: 0;
+  }
+
+  & .separator {
+    margin-top: auto;
   }
 }
