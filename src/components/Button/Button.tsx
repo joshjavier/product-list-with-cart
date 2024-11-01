@@ -1,3 +1,4 @@
+import { forwardRef } from 'react'
 import Icon from '../Icon'
 
 export interface Props {
@@ -8,7 +9,7 @@ export interface Props {
   onClick?: () => void
 }
 
-export default function Button({ type, label, icon, size, ...props }: Props) {
+const Button = forwardRef<HTMLButtonElement, Props>(({ type, label, icon, size, ...props }, ref) => {
   const classes = [
     'btn',
     type ? `btn-${type}` : '',
@@ -16,11 +17,15 @@ export default function Button({ type, label, icon, size, ...props }: Props) {
   ]
 
   return (
-    <button className={classes.join(' ')} {...props}>
+    <button ref={ref} className={classes.join(' ')} {...props}>
       {icon && <Icon variant={icon} />}
       {type === 'icon' ? (
         <span className="visually-hidden">{label}</span>
       ) : label}
     </button>
   )
-}
+})
+
+Button.displayName = 'Button'
+
+export default Button
