@@ -33,16 +33,16 @@ export default function AddToCart({ initialQuantity = 0, callback }: Props) {
     }
   }, [quantity])
 
-  const increment = () => setQuantity((q) => {
-    const value = q + 1
+  const increment = () => {
+    const value = quantity + 1
+    setQuantity(value)
     if (callback) callback(value)
-    return value
-  })
-  const decrement = () => setQuantity((q) => {
-    const value = q - 1
+  }
+  const decrement = () => {
+    const value = quantity - 1
+    setQuantity(value)
     if (callback) callback(value)
-    return value
-  })
+  }
 
   return quantity === 0 ? (
     <Button ref={btnCart} icon="cart" label="Add to Cart" onClick={increment} />
